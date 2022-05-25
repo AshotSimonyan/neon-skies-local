@@ -1,4 +1,5 @@
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { useCallback } from "react";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 // material
 import { styled } from "@mui/material/styles";
 import { Box, Button, AppBar, Toolbar, Container, Hidden, Stack } from "@mui/material";
@@ -38,6 +39,8 @@ export default function MainNavbar() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
 
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(() => navigate('/mint_skypunks', {replace: true}), [navigate]);
   return (
     <>
       <AppBar sx={{ boxShadow: 0, bgcolor: "transparent", backgroundImage: "none" }}>
@@ -62,8 +65,8 @@ export default function MainNavbar() {
 
               <Box sx={{ flexGrow: 1 }} />
               <Hidden mdDown>
-                <Button variant="contained" color="primary" href="" target="_blank" sx={{ width: 125, height: 40, borderRadius: "4px" }}>
-                  Buy $RAIN
+                <Button onClick={handleOnClick} variant="contained" color="primary" href="" target="_blank" sx={{ width: 125, height: 40, borderRadius: "4px" }}>
+                  Mint Now
                 </Button>
               </Hidden>
 

@@ -53,6 +53,7 @@
     "history": "^5.0.1",
     "lazysizes": "^5.3.2",
     "lodash": "^4.17.21",
+    "node-sass": "^7.0.1",
     "notistack": "^2.0.3",
     "nprogress": "^0.2.0",
     "numeral": "^2.0.6",
@@ -64,7 +65,7 @@
     "react-redux": "^7.2.6",
     "react-router": "^6.0.0-beta.0",
     "react-router-dom": "^6.0.0-beta.0",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "4.0.3",
     "react-scroll": "^1.8.4",
     "react-slick": "^0.28.1",
     "redux": "^4.1.1",
@@ -72,6 +73,12 @@
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
     "slick-carousel": "^1.8.1",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "@openzeppelin/contracts": "^4.2.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "react-device-detect": "^2.2.2",
+    "redux-thunk": "^2.3.0",
+    "web3": "^1.5.1"
   }
 }

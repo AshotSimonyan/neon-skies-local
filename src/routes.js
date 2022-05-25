@@ -7,6 +7,7 @@ import LogoOnlyLayout from "./layouts/LogoOnlyLayout";
 import LoadingScreen from "./components/LoadingScreen";
 import Homepage from "pages/Homepage";
 import Adminpage from "pages/Adminpage";
+import Mintpage from "pages/Mintpage/Mintpage";
 // ----------------------------------------------------------------------
 
 const Loadable = (Component) => (props) => {
@@ -25,7 +26,8 @@ export default function Router() {
       element: <MainLayout />,
       children: [
         { path: "/", element: <Homepage /> },
-        { path: "/admin", element: <Adminpage /> }
+        { path: "/admin", element: <Adminpage /> },
+        { path: "/mint_skypunks", element: <Mintpage /> }
       ]
     }
   ]);

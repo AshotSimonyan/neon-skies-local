@@ -13,14 +13,14 @@ import MainFooter from "./MainFooter";
 export default function MainLayout() {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
+  const isMint = pathname === "/mint_skypunks";
 
   return (
     <>
-      <MainNavbar />
+      {!isMint && <MainNavbar />}
       <div>
         <Outlet />
       </div>
-
       <MainFooter />
     </>
   );

@@ -12,7 +12,7 @@ import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 //
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import { store, persistor } from 'redux/store';
+import { store } from 'redux/store';
 import { getLibrary } from 'utils/web3React';
 import LoadingScreen from 'components/LoadingScreen';
 import Grow from '@mui/material/Grow';

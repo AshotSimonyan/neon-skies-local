@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { NavLink as RouterLink, useLocation } from "react-router-dom";
+import { NavLink as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 // material
 import { alpha, styled } from "@mui/material/styles";
@@ -125,6 +125,7 @@ export default function MenuMobile({ isHome, navConfig }) {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(true);
   const [drawerOpen, setDrawerOpen] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (drawerOpen) {
@@ -144,6 +145,8 @@ export default function MenuMobile({ isHome, navConfig }) {
   const handleDrawerClose = () => {
     setDrawerOpen(false);
   };
+
+  const handleOnClick = useCallback(() => navigate('/mint_skypunks', {replace: true}), [navigate]);
 
   return (
     <>
@@ -180,8 +183,8 @@ export default function MenuMobile({ isHome, navConfig }) {
             ))}
           </List>
           <Stack sx={{ px: 2, mt: 5 }}>
-            <Button variant="contained" color="primary" href="" target="_blank" sx={{ width: { sm: 125, xs: 1 }, height: 40, borderRadius: "4px" }}>
-              Buy $Neon
+            <Button onClick={handleOnClick} variant="contained" color="primary" href="" target="_blank" sx={{ width: { sm: 125, xs: 1 }, height: 40, borderRadius: "4px" }}>
+              Mint Now
             </Button>
           </Stack>
         </Scrollbar>
