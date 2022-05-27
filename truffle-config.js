@@ -47,6 +47,12 @@ module.exports = {
       port: 8545, // Standard Ethereum port (default: none)
       network_id: "*", // Any network (default: none)
     },
+    matic: {
+      network_id: 137,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -83,7 +89,7 @@ module.exports = {
   contracts_build_directory: "./src/contracts/",
   compilers: {
     solc: {
-      version: "0.8.1", // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.4", // Fetch exact version from solc-bin (default: truffle's version)
       settings: {
         // See the solidity docs for advice about optimization and evmVersion
         optimizer: {
@@ -99,6 +105,7 @@ module.exports = {
   // Note: if you migrated your contracts prior to enabling this field in your Truffle project and want
   // those previously migrated contracts available in the .db directory, you will need to run the following:
   // $ truffle migrate --reset --compile-all
+  // $ truffle migrate --network matic
 
   db: {
     enabled: false,

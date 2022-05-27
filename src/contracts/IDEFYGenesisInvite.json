@@ -1,0 +1,332 @@
+{
+  "contractName": "IDEFYGenesisInvite",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "spendInvite",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getInviteMetadata",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "originalOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "enum InviteTypes.InviteState",
+              "name": "inviteState",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "seriesId",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct InviteTypes.DEFYGenesisInviteMetadata",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getInviteMetadata\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"originalOwner\",\"type\":\"address\"},{\"internalType\":\"enum InviteTypes.InviteState\",\"name\":\"inviteState\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"seriesId\",\"type\":\"uint8\"}],\"internalType\":\"struct InviteTypes.DEFYGenesisInviteMetadata\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"spendInvite\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IDEFYGenesisInvite.sol\":\"IDEFYGenesisInvite\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IDEFYGenesisInvite.sol\":{\"keccak256\":\"0xd259c0cd5a22a9bc4e66340c43621359b37961703833171598367966440b0eee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6300a3f0911aeb596a0769d648bf7911a36e18211181c04992fe67ce21b3f1c7\",\"dweb:/ipfs/QmXF5oSxnBAL2EsJQm1XvEG91FKc8DyAbaMJDhSe3ryz9J\"]},\"project:/contracts/InviteTypes.sol\":{\"keccak256\":\"0x01b05dc06fd353539acfb3eb679212f006fd363ad8346e759dc497d17940bcc8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2539221d070cd9390fd51bd384808307f08481661520d7f32f741d78d9966606\",\"dweb:/ipfs/QmXheoTFTD6cufEC1Yx82WbmBibFPsFbPN6HnMxyjFjKeL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"./InviteTypes.sol\";\n\ninterface IDEFYGenesisInvite is InviteTypes {\n  function spendInvite (uint256 tokenId, address spender) external;\n  function getInviteMetadata (uint256 tokenId) external view returns (DEFYGenesisInviteMetadata memory);\n}",
+  "sourcePath": "/Users/nftstack/Documents/GitHub/neon-skies-local/contracts/IDEFYGenesisInvite.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IDEFYGenesisInvite.sol",
+    "exportedSymbols": {
+      "IDEFYGenesisInvite": [
+        4296
+      ],
+      "InviteTypes": [
+        4310
+      ]
+    },
+    "id": 4297,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4277,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:21"
+      },
+      {
+        "absolutePath": "project:/contracts/InviteTypes.sol",
+        "file": "./InviteTypes.sol",
+        "id": 4278,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 4297,
+        "sourceUnit": 4311,
+        "src": "57:27:21",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 4279,
+              "name": "InviteTypes",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 4310,
+              "src": "118:11:21"
+            },
+            "id": 4280,
+            "nodeType": "InheritanceSpecifier",
+            "src": "118:11:21"
+          }
+        ],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 4296,
+        "linearizedBaseContracts": [
+          4296,
+          4310
+        ],
+        "name": "IDEFYGenesisInvite",
+        "nameLocation": "96:18:21",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "5962c334",
+            "id": 4287,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "spendInvite",
+            "nameLocation": "143:11:21",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4285,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4282,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "164:7:21",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4287,
+                  "src": "156:15:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4281,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "156:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 4284,
+                  "mutability": "mutable",
+                  "name": "spender",
+                  "nameLocation": "181:7:21",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4287,
+                  "src": "173:15:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 4283,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "173:7:21",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "155:34:21"
+            },
+            "returnParameters": {
+              "id": 4286,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "198:0:21"
+            },
+            "scope": 4296,
+            "src": "134:65:21",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "b6e76def",
+            "id": 4295,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getInviteMetadata",
+            "nameLocation": "211:17:21",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 4290,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4289,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "238:7:21",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4295,
+                  "src": "230:15:21",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 4288,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "230:7:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "229:17:21"
+            },
+            "returnParameters": {
+              "id": 4294,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 4293,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 4295,
+                  "src": "270:32:21",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_DEFYGenesisInviteMetadata_$4309_memory_ptr",
+                    "typeString": "struct InviteTypes.DEFYGenesisInviteMetadata"
+                  },
+                  "typeName": {
+                    "id": 4292,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 4291,
+                      "name": "DEFYGenesisInviteMetadata",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 4309,
+                      "src": "270:25:21"
+                    },
+                    "referencedDeclaration": 4309,
+                    "src": "270:25:21",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_DEFYGenesisInviteMetadata_$4309_storage_ptr",
+                      "typeString": "struct InviteTypes.DEFYGenesisInviteMetadata"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "269:34:21"
+            },
+            "scope": 4296,
+            "src": "202:102:21",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 4297,
+        "src": "86:220:21",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:274:21"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-05-27T11:46:09.500Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

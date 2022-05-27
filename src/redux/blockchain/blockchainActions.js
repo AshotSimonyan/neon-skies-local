@@ -1,9 +1,8 @@
 // constants
 import Web3 from "web3";
-import SmartContract from "../../contracts/NFTStack.json";
+import SmartContract from "../../contracts/DEFYGenesisMask.json";
 // log
 import { fetchData } from "../data/dataActions";
-
 const connectRequest = () => {
   return {
     type: "CONNECTION_REQUEST",
@@ -35,6 +34,7 @@ export const connect = () => {
   return async (dispatch) => {
     dispatch(connectRequest());
     if (window.ethereum) {
+
       const web3 = new Web3(window.ethereum);
       try {
         await window.ethereum.enable();
@@ -48,7 +48,7 @@ export const connect = () => {
         if (networkId === '137' || networkId === 137) {
           const SmartContractObj = new web3.eth.Contract(
             SmartContract.abi,
-            "0x0e4539d9abfcdb5ec704c4e81b51b314b762278c"
+            "0x714156038479451fab19d0ef3deb5d78730e2d21"
           );
           dispatch(
             connectSuccess({

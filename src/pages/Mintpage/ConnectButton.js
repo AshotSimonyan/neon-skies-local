@@ -45,25 +45,27 @@ const ConnectButton = () => {
 
   useEffect(async () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
-      const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
-      const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
-      const mintPrice = isMintActive ? await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
-        : isPreSaleMintActive ? await blockchain.smartContract.methods?.preSaleMintPrice().call() / 10 ** 18 : 0
-      dispatch(fetchData(blockchain.account));
+
+      const test = await blockchain.smartContract.methods
+      console.log(test);
+      // const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
+      // const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
+      const mintPrice = await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
+      // dispatch(fetchData(blockchain.account));
       if (blockchain.account) {
         setWalletConnected(true)
-        const maxMint = await blockchain.smartContract.methods.maximumAllowedTokensPerWallet().call()
-        const maxPreSaleMint = await blockchain.smartContract.methods.allowListMaxMint().call()
-        const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
-        const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
+        // const maxMint = await blockchain.smartContract.methods.maximumAllowedTokensPerWallet().call()
+        // const maxPreSaleMint = await blockchain.smartContract.methods.allowListMaxMint().call()
+        // const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
+        // const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
 
         //comment if you need static maxMintCount
-        if(isMintActive) {
-          setMaxMintCount(maxMint)
-        }
-        if(isPreSaleMintActive) {
-          setMaxMintCount(maxPreSaleMint)
-        }
+        // if(isMintActive) {
+        //   setMaxMintCount(maxMint)
+        // }
+        // if(isPreSaleMintActive) {
+        //   setMaxMintCount(maxPreSaleMint)
+        // }
         //end
       }
 
@@ -79,41 +81,57 @@ const ConnectButton = () => {
 
   const claimNFTs = async (_amount) => {
     setLoading(true)
-    const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
-    const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
+    // const isMintActive = await blockchain.smartContract.methods.isMintActive().call()
+    // const isPreSaleMintActive = await blockchain.smartContract.methods.isPreSaleMintActive().call()
     const address = await blockchain.account
-    const isWhitelisted = await blockchain.smartContract.methods.checkIfOnAllowList(address).call()
-    const alreadyMintedCount = await blockchain.smartContract.methods.allowListClaimedBy(address).call()
-    const mint = isMintActive ? blockchain.smartContract.methods.mint(blockchain.account, _amount)
-      : isPreSaleMintActive ? blockchain.smartContract.methods.preSaleMint(_amount)
-        : null;
+    // const isWhitelisted = await blockchain.smartContract.methods.checkIfOnAllowList(address).call()
+    // const alreadyMintedCount = await blockchain.smartContract.methods.allowListClaimedBy(address).call()
+    // const mint = isMintActive ? blockchain.smartContract.methods.publicMint(blockchain.account, _amount)
+    //   : isPreSaleMintActive ? blockchain.smartContract.methods.preSaleMint(_amount)
+    //     : null;
 
-    if (mint) {
-      const mintPrice = isMintActive ? await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
-        : isPreSaleMintActive ? await blockchain.smartContract.methods?.preSaleMintPrice().call() / 10 ** 18 : 0
 
-      const balance = await blockchain.web3.eth.getBalance(blockchain.account, async (err, result) => {
-        return  blockchain.web3.utils.fromWei(result, "ether")
-      })
-      const roundedBalance = balance / 10 ** 18
-      if(roundedBalance < fixImpreciseNumber(_amount * mintPrice)) {
-        setLoading(false)
-        return setFallback(`You don’t have enough funds to mint! Please, make sure to have ${fixImpreciseNumber(_amount * mintPrice)} MATIC + gas.`)
-      }
-      if(isPreSaleMintActive) {
-        setLoading(false)
-        if(!isWhitelisted) {
-          return setFallback('Unfortunately, you are not whitelisted.')
-        }
-        if(alreadyMintedCount >= maxMintCount) {
-          return setFallback('This wallet has reached the transaction limit.')
-        }
-      }
-      if(roundedBalance)
-        setLoading(false)
-      mint.send({
+
+    if (true) {
+      // const mintPrice = isMintActive ? await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
+      //   : isPreSaleMintActive ? await blockchain.smartContract.methods?.preSaleMintPrice().call() / 10 ** 18 : 0
+
+      // const balance = await blockchain.web3.eth.getBalance(blockchain.account, async (err, result) => {
+      //   return  blockchain.web3.utils.fromWei(result, "ether")
+      // })
+      // const roundedBalance = balance / 10 ** 18
+      // if(roundedBalance < fixImpreciseNumber(_amount * mintPrice)) {
+      //   setLoading(false)
+      //   return setFallback(`You don’t have enough funds to mint! Please, make sure to have ${fixImpreciseNumber(_amount * mintPrice)} MATIC + gas.`)
+      // }
+      // if(isPreSaleMintActive) {
+      //   setLoading(false)
+      //   if(!isWhitelisted) {
+      //     return setFallback('Unfortunately, you are not whitelisted.')
+      //   }
+      //   if(alreadyMintedCount >= maxMintCount) {
+      //     return setFallback('This wallet has reached the transaction limit.')
+      //   }
+      // }
+      // if(roundedBalance)
+      //   setLoading(false)
+
+      const mintPrice = await blockchain.smartContract.methods?.mintPrice().call() / 10 ** 18
+
+      // const getBlock = await blockchain.web3.eth.getBlock()
+      // const baseFee = getBlock.baseFeePerGas
+      //
+      // const priorityFee = 40 * 10**9
+      // const MaxFee = (2 * baseFee) + priorityFee
+      console.log(blockchain.account);
+      console.log(blockchain.smartContract.methods);
+      blockchain.smartContract.methods.withdrawBalance().send({
         from: blockchain.account,
-        value: blockchain.web3.utils.toWei(fixImpreciseNumber(mintPrice * _amount).toString(), "ether")
+        to: blockchain.smartContract._address,
+        value: blockchain.web3.utils.toWei(fixImpreciseNumber(mintPrice * _amount).toString(), "ether"),
+        // gasLimit: 310000,
+        // maxFeePerGas: MaxFee,
+        // maxPriorityFeePerGas: priorityFee,
 
       }).once("error", (err) => {
         if (err.code === -32000 || err.code === '-32000') {

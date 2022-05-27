@@ -1,0 +1,200 @@
+{
+  "contractName": "InviteTypes",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/InviteTypes.sol\":\"InviteTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/InviteTypes.sol\":{\"keccak256\":\"0x01b05dc06fd353539acfb3eb679212f006fd363ad8346e759dc497d17940bcc8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2539221d070cd9390fd51bd384808307f08481661520d7f32f741d78d9966606\",\"dweb:/ipfs/QmXheoTFTD6cufEC1Yx82WbmBibFPsFbPN6HnMxyjFjKeL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\ninterface InviteTypes {\n  // Invite state. Once an invite is spent, it is no longer able to be transferred and cannot be made active again\n  enum InviteState {\n    ACTIVE,\n    SPENT\n  }\n\n  // Onchain metadata for the invite\n  struct DEFYGenesisInviteMetadata {\n    address originalOwner; // Store the original owner to track who to send commission to\n    InviteState inviteState; // Current state of this token\n    uint8 seriesId; // Series of this invite\n  }\n}",
+  "sourcePath": "/Users/nftstack/Documents/GitHub/neon-skies-local/contracts/InviteTypes.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/InviteTypes.sol",
+    "exportedSymbols": {
+      "InviteTypes": [
+        4310
+      ]
+    },
+    "id": 4311,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 4298,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:22"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": true,
+        "id": 4310,
+        "linearizedBaseContracts": [
+          4310
+        ],
+        "name": "InviteTypes",
+        "nameLocation": "67:11:22",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "InviteTypes.InviteState",
+            "id": 4301,
+            "members": [
+              {
+                "id": 4299,
+                "name": "ACTIVE",
+                "nameLocation": "221:6:22",
+                "nodeType": "EnumValue",
+                "src": "221:6:22"
+              },
+              {
+                "id": 4300,
+                "name": "SPENT",
+                "nameLocation": "233:5:22",
+                "nodeType": "EnumValue",
+                "src": "233:5:22"
+              }
+            ],
+            "name": "InviteState",
+            "nameLocation": "203:11:22",
+            "nodeType": "EnumDefinition",
+            "src": "198:44:22"
+          },
+          {
+            "canonicalName": "InviteTypes.DEFYGenesisInviteMetadata",
+            "id": 4309,
+            "members": [
+              {
+                "constant": false,
+                "id": 4303,
+                "mutability": "mutable",
+                "name": "originalOwner",
+                "nameLocation": "330:13:22",
+                "nodeType": "VariableDeclaration",
+                "scope": 4309,
+                "src": "322:21:22",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 4302,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "322:7:22",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4306,
+                "mutability": "mutable",
+                "name": "inviteState",
+                "nameLocation": "424:11:22",
+                "nodeType": "VariableDeclaration",
+                "scope": 4309,
+                "src": "412:23:22",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_InviteState_$4301",
+                  "typeString": "enum InviteTypes.InviteState"
+                },
+                "typeName": {
+                  "id": 4305,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 4304,
+                    "name": "InviteState",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 4301,
+                    "src": "412:11:22"
+                  },
+                  "referencedDeclaration": 4301,
+                  "src": "412:11:22",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_InviteState_$4301",
+                    "typeString": "enum InviteTypes.InviteState"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 4308,
+                "mutability": "mutable",
+                "name": "seriesId",
+                "nameLocation": "478:8:22",
+                "nodeType": "VariableDeclaration",
+                "scope": 4309,
+                "src": "472:14:22",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 4307,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "472:5:22",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "DEFYGenesisInviteMetadata",
+            "nameLocation": "290:25:22",
+            "nodeType": "StructDefinition",
+            "scope": 4310,
+            "src": "283:233:22",
+            "visibility": "public"
+          }
+        ],
+        "scope": 4311,
+        "src": "57:461:22",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:486:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.7",
+  "updatedAt": "2022-05-27T11:46:09.501Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
